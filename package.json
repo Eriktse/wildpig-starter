@@ -5,6 +5,6 @@
     "start": "cd dist && ./wildpig"
   },
   "dependencies": {
-    "wildpig": "1.0.6"
+    "wildpig": "1.0.7"
   }
 }
