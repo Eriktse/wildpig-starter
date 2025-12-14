@@ -2,5 +2,7 @@
 
 
 export const GET = () => {
-    return new Response("Hello GET");
+    return Response.json({
+        name: 'John Doe'
+    });
 }

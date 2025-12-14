@@ -2,9 +2,15 @@
   "scripts": {
     "dev": "export NODE_ENV=development && bun --hot run index.ts",
     "build": "export NODE_ENV=production && bun run prebuild.ts && bun build --compile index.ts --outfile dist/wildpig",
-    "start": "cd dist && ./wildpig"
+    "build-linux": "export NODE_ENV=production && bun run prebuild.ts && bun build --compile index.ts --target=bun-linux-x64-musl --outfile dist/wildpig",
+    "start": "cd dist && ./wildpig",
+    "docker:build": "bun run build-linux && docker build -t wildpig .",
+    "docker:run": "docker run -it -p 3000:3000 wildpig"
   },
   "dependencies": {
-    "wildpig": "1.0.7"
+    "antd": "^6.1.0",
+    "bun-plugin-tailwind": "^0.1.2",
+    "tailwindcss": "^4.1.18",
+    "wildpig": "1.1.0"
   }
 }
