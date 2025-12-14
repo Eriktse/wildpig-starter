@@ -16873,228 +16873,6 @@ var require_client = __commonJS((exports, module) => {
   }
 });
 
-// node_modules/react/cjs/react-jsx-dev-runtime.development.js
-var require_react_jsx_dev_runtime_development = __commonJS((exports) => {
-  var React12 = __toESM(require_react());
-  (function() {
-    function getComponentNameFromType(type) {
-      if (type == null)
-        return null;
-      if (typeof type === "function")
-        return type.$$typeof === REACT_CLIENT_REFERENCE ? null : type.displayName || type.name || null;
-      if (typeof type === "string")
-        return type;
-      switch (type) {
-        case REACT_FRAGMENT_TYPE:
-          return "Fragment";
-        case REACT_PROFILER_TYPE:
-          return "Profiler";
-        case REACT_STRICT_MODE_TYPE:
-          return "StrictMode";
-        case REACT_SUSPENSE_TYPE:
-          return "Suspense";
-        case REACT_SUSPENSE_LIST_TYPE:
-          return "SuspenseList";
-        case REACT_ACTIVITY_TYPE:
-          return "Activity";
-      }
-      if (typeof type === "object")
-        switch (typeof type.tag === "number" && console.error("Received an unexpected object in getComponentNameFromType(). This is likely a bug in React. Please file an issue."), type.$$typeof) {
-          case REACT_PORTAL_TYPE:
-            return "Portal";
-          case REACT_CONTEXT_TYPE:
-            return type.displayName || "Context";
-          case REACT_CONSUMER_TYPE:
-            return (type._context.displayName || "Context") + ".Consumer";
-          case REACT_FORWARD_REF_TYPE:
-            var innerType = type.render;
-            type = type.displayName;
-            type || (type = innerType.displayName || innerType.name || "", type = type !== "" ? "ForwardRef(" + type + ")" : "ForwardRef");
-            return type;
-          case REACT_MEMO_TYPE:
-            return innerType = type.displayName || null, innerType !== null ? innerType : getComponentNameFromType(type.type) || "Memo";
-          case REACT_LAZY_TYPE:
-            innerType = type._payload;
-            type = type._init;
-            try {
-              return getComponentNameFromType(type(innerType));
-            } catch (x) {}
-        }
-      return null;
-    }
-    function testStringCoercion(value) {
-      return "" + value;
-    }
-    function checkKeyStringCoercion(value) {
-      try {
-        testStringCoercion(value);
-        var JSCompiler_inline_result = false;
-      } catch (e) {
-        JSCompiler_inline_result = true;
-      }
-      if (JSCompiler_inline_result) {
-        JSCompiler_inline_result = console;
-        var JSCompiler_temp_const = JSCompiler_inline_result.error;
-        var JSCompiler_inline_result$jscomp$0 = typeof Symbol === "function" && Symbol.toStringTag && value[Symbol.toStringTag] || value.constructor.name || "Object";
-        JSCompiler_temp_const.call(JSCompiler_inline_result, "The provided key is an unsupported type %s. This value must be coerced to a string before using it here.", JSCompiler_inline_result$jscomp$0);
-        return testStringCoercion(value);
-      }
-    }
-    function getTaskName(type) {
-      if (type === REACT_FRAGMENT_TYPE)
-        return "<>";
-      if (typeof type === "object" && type !== null && type.$$typeof === REACT_LAZY_TYPE)
-        return "<...>";
-      try {
-        var name = getComponentNameFromType(type);
-        return name ? "<" + name + ">" : "<...>";
-      } catch (x) {
-        return "<...>";
-      }
-    }
-    function getOwner() {
-      var dispatcher = ReactSharedInternals.A;
-      return dispatcher === null ? null : dispatcher.getOwner();
-    }
-    function UnknownOwner() {
-      return Error("react-stack-top-frame");
-    }
-    function hasValidKey(config) {
-      if (hasOwnProperty.call(config, "key")) {
-        var getter = Object.getOwnPropertyDescriptor(config, "key").get;
-        if (getter && getter.isReactWarning)
-          return false;
-      }
-      return config.key !== undefined;
-    }
-    function defineKeyPropWarningGetter(props, displayName) {
-      function warnAboutAccessingKey() {
-        specialPropKeyWarningShown || (specialPropKeyWarningShown = true, console.error("%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://react.dev/link/special-props)", displayName));
-      }
-      warnAboutAccessingKey.isReactWarning = true;
-      Object.defineProperty(props, "key", {
-        get: warnAboutAccessingKey,
-        configurable: true
-      });
-    }
-    function elementRefGetterWithDeprecationWarning() {
-      var componentName = getComponentNameFromType(this.type);
-      didWarnAboutElementRef[componentName] || (didWarnAboutElementRef[componentName] = true, console.error("Accessing element.ref was removed in React 19. ref is now a regular prop. It will be removed from the JSX Element type in a future release."));
-      componentName = this.props.ref;
-      return componentName !== undefined ? componentName : null;
-    }
-    function ReactElement(type, key, props, owner, debugStack, debugTask) {
-      var refProp = props.ref;
-      type = {
-        $$typeof: REACT_ELEMENT_TYPE,
-        type,
-        key,
-        props,
-        _owner: owner
-      };
-      (refProp !== undefined ? refProp : null) !== null ? Object.defineProperty(type, "ref", {
-        enumerable: false,
-        get: elementRefGetterWithDeprecationWarning
-      }) : Object.defineProperty(type, "ref", { enumerable: false, value: null });
-      type._store = {};
-      Object.defineProperty(type._store, "validated", {
-        configurable: false,
-        enumerable: false,
-        writable: true,
-        value: 0
-      });
-      Object.defineProperty(type, "_debugInfo", {
-        configurable: false,
-        enumerable: false,
-        writable: true,
-        value: null
-      });
-      Object.defineProperty(type, "_debugStack", {
-        configurable: false,
-        enumerable: false,
-        writable: true,
-        value: debugStack
-      });
-      Object.defineProperty(type, "_debugTask", {
-        configurable: false,
-        enumerable: false,
-        writable: true,
-        value: debugTask
-      });
-      Object.freeze && (Object.freeze(type.props), Object.freeze(type));
-      return type;
-    }
-    function jsxDEVImpl(type, config, maybeKey, isStaticChildren, debugStack, debugTask) {
-      var children = config.children;
-      if (children !== undefined)
-        if (isStaticChildren)
-          if (isArrayImpl(children)) {
-            for (isStaticChildren = 0;isStaticChildren < children.length; isStaticChildren++)
-              validateChildKeys(children[isStaticChildren]);
-            Object.freeze && Object.freeze(children);
-          } else
-            console.error("React.jsx: Static children should always be an array. You are likely explicitly calling React.jsxs or React.jsxDEV. Use the Babel transform instead.");
-        else
-          validateChildKeys(children);
-      if (hasOwnProperty.call(config, "key")) {
-        children = getComponentNameFromType(type);
-        var keys = Object.keys(config).filter(function(k) {
-          return k !== "key";
-        });
-        isStaticChildren = 0 < keys.length ? "{key: someKey, " + keys.join(": ..., ") + ": ...}" : "{key: someKey}";
-        didWarnAboutKeySpread[children + isStaticChildren] || (keys = 0 < keys.length ? "{" + keys.join(": ..., ") + ": ...}" : "{}", console.error(`A props object containing a "key" prop is being spread into JSX:
-  let props = %s;
-  <%s {...props} />
-React keys must be passed directly to JSX without using spread:
-  let props = %s;
-  <%s key={someKey} {...props} />`, isStaticChildren, children, keys, children), didWarnAboutKeySpread[children + isStaticChildren] = true);
-      }
-      children = null;
-      maybeKey !== undefined && (checkKeyStringCoercion(maybeKey), children = "" + maybeKey);
-      hasValidKey(config) && (checkKeyStringCoercion(config.key), children = "" + config.key);
-      if ("key" in config) {
-        maybeKey = {};
-        for (var propName in config)
-          propName !== "key" && (maybeKey[propName] = config[propName]);
-      } else
-        maybeKey = config;
-      children && defineKeyPropWarningGetter(maybeKey, typeof type === "function" ? type.displayName || type.name || "Unknown" : type);
-      return ReactElement(type, children, maybeKey, getOwner(), debugStack, debugTask);
-    }
-    function validateChildKeys(node) {
-      isValidElement2(node) ? node._store && (node._store.validated = 1) : typeof node === "object" && node !== null && node.$$typeof === REACT_LAZY_TYPE && (node._payload.status === "fulfilled" ? isValidElement2(node._payload.value) && node._payload.value._store && (node._payload.value._store.validated = 1) : node._store && (node._store.validated = 1));
-    }
-    function isValidElement2(object) {
-      return typeof object === "object" && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
-    }
-    var REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy"), REACT_ACTIVITY_TYPE = Symbol.for("react.activity"), REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), ReactSharedInternals = React12.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, hasOwnProperty = Object.prototype.hasOwnProperty, isArrayImpl = Array.isArray, createTask = console.createTask ? console.createTask : function() {
-      return null;
-    };
-    React12 = {
-      react_stack_bottom_frame: function(callStackForError) {
-        return callStackForError();
-      }
-    };
-    var specialPropKeyWarningShown;
-    var didWarnAboutElementRef = {};
-    var unknownOwnerDebugStack = React12.react_stack_bottom_frame.bind(React12, UnknownOwner)();
-    var unknownOwnerDebugTask = createTask(getTaskName(UnknownOwner));
-    var didWarnAboutKeySpread = {};
-    exports.Fragment = REACT_FRAGMENT_TYPE;
-    exports.jsxDEV = function(type, config, maybeKey, isStaticChildren) {
-      var trackActualOwner = 1e4 > ReactSharedInternals.recentlyCreatedOwnerStacks++;
-      return jsxDEVImpl(type, config, maybeKey, isStaticChildren, trackActualOwner ? Error("react-stack-top-frame") : unknownOwnerDebugStack, trackActualOwner ? createTask(getTaskName(type)) : unknownOwnerDebugTask);
-    };
-  })();
-});
-
-// node_modules/react/jsx-dev-runtime.js
-var require_jsx_dev_runtime = __commonJS((exports, module) => {
-  if (false) {} else {
-    module.exports = require_react_jsx_dev_runtime_development();
-  }
-});
-
 // node_modules/react-is/cjs/react-is.development.js
 var require_react_is_development = __commonJS((exports) => {
   if (true) {
@@ -17273,6 +17051,228 @@ var require_react_is_development = __commonJS((exports) => {
 var require_react_is = __commonJS((exports, module) => {
   if (false) {} else {
     module.exports = require_react_is_development();
+  }
+});
+
+// node_modules/react/cjs/react-jsx-dev-runtime.development.js
+var require_react_jsx_dev_runtime_development = __commonJS((exports) => {
+  var React13 = __toESM(require_react());
+  (function() {
+    function getComponentNameFromType(type5) {
+      if (type5 == null)
+        return null;
+      if (typeof type5 === "function")
+        return type5.$$typeof === REACT_CLIENT_REFERENCE ? null : type5.displayName || type5.name || null;
+      if (typeof type5 === "string")
+        return type5;
+      switch (type5) {
+        case REACT_FRAGMENT_TYPE2:
+          return "Fragment";
+        case REACT_PROFILER_TYPE:
+          return "Profiler";
+        case REACT_STRICT_MODE_TYPE:
+          return "StrictMode";
+        case REACT_SUSPENSE_TYPE:
+          return "Suspense";
+        case REACT_SUSPENSE_LIST_TYPE:
+          return "SuspenseList";
+        case REACT_ACTIVITY_TYPE:
+          return "Activity";
+      }
+      if (typeof type5 === "object")
+        switch (typeof type5.tag === "number" && console.error("Received an unexpected object in getComponentNameFromType(). This is likely a bug in React. Please file an issue."), type5.$$typeof) {
+          case REACT_PORTAL_TYPE:
+            return "Portal";
+          case REACT_CONTEXT_TYPE:
+            return type5.displayName || "Context";
+          case REACT_CONSUMER_TYPE:
+            return (type5._context.displayName || "Context") + ".Consumer";
+          case REACT_FORWARD_REF_TYPE:
+            var innerType = type5.render;
+            type5 = type5.displayName;
+            type5 || (type5 = innerType.displayName || innerType.name || "", type5 = type5 !== "" ? "ForwardRef(" + type5 + ")" : "ForwardRef");
+            return type5;
+          case REACT_MEMO_TYPE:
+            return innerType = type5.displayName || null, innerType !== null ? innerType : getComponentNameFromType(type5.type) || "Memo";
+          case REACT_LAZY_TYPE:
+            innerType = type5._payload;
+            type5 = type5._init;
+            try {
+              return getComponentNameFromType(type5(innerType));
+            } catch (x) {}
+        }
+      return null;
+    }
+    function testStringCoercion(value) {
+      return "" + value;
+    }
+    function checkKeyStringCoercion(value) {
+      try {
+        testStringCoercion(value);
+        var JSCompiler_inline_result = false;
+      } catch (e) {
+        JSCompiler_inline_result = true;
+      }
+      if (JSCompiler_inline_result) {
+        JSCompiler_inline_result = console;
+        var JSCompiler_temp_const = JSCompiler_inline_result.error;
+        var JSCompiler_inline_result$jscomp$0 = typeof Symbol === "function" && Symbol.toStringTag && value[Symbol.toStringTag] || value.constructor.name || "Object";
+        JSCompiler_temp_const.call(JSCompiler_inline_result, "The provided key is an unsupported type %s. This value must be coerced to a string before using it here.", JSCompiler_inline_result$jscomp$0);
+        return testStringCoercion(value);
+      }
+    }
+    function getTaskName(type5) {
+      if (type5 === REACT_FRAGMENT_TYPE2)
+        return "<>";
+      if (typeof type5 === "object" && type5 !== null && type5.$$typeof === REACT_LAZY_TYPE)
+        return "<...>";
+      try {
+        var name = getComponentNameFromType(type5);
+        return name ? "<" + name + ">" : "<...>";
+      } catch (x) {
+        return "<...>";
+      }
+    }
+    function getOwner() {
+      var dispatcher = ReactSharedInternals.A;
+      return dispatcher === null ? null : dispatcher.getOwner();
+    }
+    function UnknownOwner() {
+      return Error("react-stack-top-frame");
+    }
+    function hasValidKey(config) {
+      if (hasOwnProperty.call(config, "key")) {
+        var getter = Object.getOwnPropertyDescriptor(config, "key").get;
+        if (getter && getter.isReactWarning)
+          return false;
+      }
+      return config.key !== undefined;
+    }
+    function defineKeyPropWarningGetter(props, displayName) {
+      function warnAboutAccessingKey() {
+        specialPropKeyWarningShown || (specialPropKeyWarningShown = true, console.error("%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://react.dev/link/special-props)", displayName));
+      }
+      warnAboutAccessingKey.isReactWarning = true;
+      Object.defineProperty(props, "key", {
+        get: warnAboutAccessingKey,
+        configurable: true
+      });
+    }
+    function elementRefGetterWithDeprecationWarning() {
+      var componentName = getComponentNameFromType(this.type);
+      didWarnAboutElementRef[componentName] || (didWarnAboutElementRef[componentName] = true, console.error("Accessing element.ref was removed in React 19. ref is now a regular prop. It will be removed from the JSX Element type in a future release."));
+      componentName = this.props.ref;
+      return componentName !== undefined ? componentName : null;
+    }
+    function ReactElement(type5, key, props, owner, debugStack, debugTask) {
+      var refProp = props.ref;
+      type5 = {
+        $$typeof: REACT_ELEMENT_TYPE,
+        type: type5,
+        key,
+        props,
+        _owner: owner
+      };
+      (refProp !== undefined ? refProp : null) !== null ? Object.defineProperty(type5, "ref", {
+        enumerable: false,
+        get: elementRefGetterWithDeprecationWarning
+      }) : Object.defineProperty(type5, "ref", { enumerable: false, value: null });
+      type5._store = {};
+      Object.defineProperty(type5._store, "validated", {
+        configurable: false,
+        enumerable: false,
+        writable: true,
+        value: 0
+      });
+      Object.defineProperty(type5, "_debugInfo", {
+        configurable: false,
+        enumerable: false,
+        writable: true,
+        value: null
+      });
+      Object.defineProperty(type5, "_debugStack", {
+        configurable: false,
+        enumerable: false,
+        writable: true,
+        value: debugStack
+      });
+      Object.defineProperty(type5, "_debugTask", {
+        configurable: false,
+        enumerable: false,
+        writable: true,
+        value: debugTask
+      });
+      Object.freeze && (Object.freeze(type5.props), Object.freeze(type5));
+      return type5;
+    }
+    function jsxDEVImpl(type5, config, maybeKey, isStaticChildren, debugStack, debugTask) {
+      var children = config.children;
+      if (children !== undefined)
+        if (isStaticChildren)
+          if (isArrayImpl(children)) {
+            for (isStaticChildren = 0;isStaticChildren < children.length; isStaticChildren++)
+              validateChildKeys(children[isStaticChildren]);
+            Object.freeze && Object.freeze(children);
+          } else
+            console.error("React.jsx: Static children should always be an array. You are likely explicitly calling React.jsxs or React.jsxDEV. Use the Babel transform instead.");
+        else
+          validateChildKeys(children);
+      if (hasOwnProperty.call(config, "key")) {
+        children = getComponentNameFromType(type5);
+        var keys2 = Object.keys(config).filter(function(k) {
+          return k !== "key";
+        });
+        isStaticChildren = 0 < keys2.length ? "{key: someKey, " + keys2.join(": ..., ") + ": ...}" : "{key: someKey}";
+        didWarnAboutKeySpread[children + isStaticChildren] || (keys2 = 0 < keys2.length ? "{" + keys2.join(": ..., ") + ": ...}" : "{}", console.error(`A props object containing a "key" prop is being spread into JSX:
+  let props = %s;
+  <%s {...props} />
+React keys must be passed directly to JSX without using spread:
+  let props = %s;
+  <%s key={someKey} {...props} />`, isStaticChildren, children, keys2, children), didWarnAboutKeySpread[children + isStaticChildren] = true);
+      }
+      children = null;
+      maybeKey !== undefined && (checkKeyStringCoercion(maybeKey), children = "" + maybeKey);
+      hasValidKey(config) && (checkKeyStringCoercion(config.key), children = "" + config.key);
+      if ("key" in config) {
+        maybeKey = {};
+        for (var propName in config)
+          propName !== "key" && (maybeKey[propName] = config[propName]);
+      } else
+        maybeKey = config;
+      children && defineKeyPropWarningGetter(maybeKey, typeof type5 === "function" ? type5.displayName || type5.name || "Unknown" : type5);
+      return ReactElement(type5, children, maybeKey, getOwner(), debugStack, debugTask);
+    }
+    function validateChildKeys(node2) {
+      isValidElement7(node2) ? node2._store && (node2._store.validated = 1) : typeof node2 === "object" && node2 !== null && node2.$$typeof === REACT_LAZY_TYPE && (node2._payload.status === "fulfilled" ? isValidElement7(node2._payload.value) && node2._payload.value._store && (node2._payload.value._store.validated = 1) : node2._store && (node2._store.validated = 1));
+    }
+    function isValidElement7(object4) {
+      return typeof object4 === "object" && object4 !== null && object4.$$typeof === REACT_ELEMENT_TYPE;
+    }
+    var REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE2 = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy"), REACT_ACTIVITY_TYPE = Symbol.for("react.activity"), REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), ReactSharedInternals = React13.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, hasOwnProperty = Object.prototype.hasOwnProperty, isArrayImpl = Array.isArray, createTask = console.createTask ? console.createTask : function() {
+      return null;
+    };
+    React13 = {
+      react_stack_bottom_frame: function(callStackForError) {
+        return callStackForError();
+      }
+    };
+    var specialPropKeyWarningShown;
+    var didWarnAboutElementRef = {};
+    var unknownOwnerDebugStack = React13.react_stack_bottom_frame.bind(React13, UnknownOwner)();
+    var unknownOwnerDebugTask = createTask(getTaskName(UnknownOwner));
+    var didWarnAboutKeySpread = {};
+    exports.Fragment = REACT_FRAGMENT_TYPE2;
+    exports.jsxDEV = function(type5, config, maybeKey, isStaticChildren) {
+      var trackActualOwner = 1e4 > ReactSharedInternals.recentlyCreatedOwnerStacks++;
+      return jsxDEVImpl(type5, config, maybeKey, isStaticChildren, trackActualOwner ? Error("react-stack-top-frame") : unknownOwnerDebugStack, trackActualOwner ? createTask(getTaskName(type5)) : unknownOwnerDebugTask);
+    };
+  })();
+});
+
+// node_modules/react/jsx-dev-runtime.js
+var require_jsx_dev_runtime = __commonJS((exports, module) => {
+  if (false) {} else {
+    module.exports = require_react_jsx_dev_runtime_development();
   }
 });
 
@@ -22518,22 +22518,6 @@ function useViewTransitionState(to, { relative } = {}) {
 
 // node_modules/react-router/dist/development/index.mjs
 "use client";
-
-// src/page/login/Login.tsx
-var jsx_dev_runtime = __toESM(require_jsx_dev_runtime(), 1);
-var Login = () => {
-  return /* @__PURE__ */ jsx_dev_runtime.jsxDEV("div", {
-    children: [
-      /* @__PURE__ */ jsx_dev_runtime.jsxDEV(Link, {
-        to: "/",
-        children: "Back to Welcome"
-      }, undefined, false, undefined, this),
-      /* @__PURE__ */ jsx_dev_runtime.jsxDEV("h1", {
-        children: "Login"
-      }, undefined, false, undefined, this)
-    ]
-  }, undefined, true, undefined, this);
-};
 
 // node_modules/antd/es/button/Button.js
 var import_react47 = __toESM(require_react(), 1);
@@ -41102,20 +41086,20 @@ var modal_default = Modal2;
 
 // src/page/welcome.tsx
 var import_react60 = __toESM(require_react(), 1);
-var jsx_dev_runtime2 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime = __toESM(require_jsx_dev_runtime(), 1);
 var Welcome = () => {
   const [open, setOpen] = import_react60.useState(false);
-  return /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
+  return /* @__PURE__ */ jsx_dev_runtime.jsxDEV("div", {
     children: [
-      /* @__PURE__ */ jsx_dev_runtime2.jsxDEV(button_default, {
+      /* @__PURE__ */ jsx_dev_runtime.jsxDEV(button_default, {
         onClick: () => setOpen(true),
         children: "Open Modal"
       }, undefined, false, undefined, this),
-      /* @__PURE__ */ jsx_dev_runtime2.jsxDEV(modal_default, {
+      /* @__PURE__ */ jsx_dev_runtime.jsxDEV(modal_default, {
         open,
         onCancel: () => setOpen(false),
         onOk: () => alert("让你ok了？"),
-        children: /* @__PURE__ */ jsx_dev_runtime2.jsxDEV("div", {
+        children: /* @__PURE__ */ jsx_dev_runtime.jsxDEV("div", {
           className: "text-red-500",
           children: "看见我是红色，说明tailwind生效了！"
         }, undefined, false, undefined, this)
@@ -41129,10 +41113,6 @@ var browserRouter = createBrowserRouter([
   {
     path: "/",
     Component: Welcome
-  },
-  {
-    path: "/login",
-    Component: Login
   }
 ]);
 
@@ -41172,8 +41152,8 @@ var RouterMetaGuard = (browserRouter2) => {
 };
 
 // src/App.tsx
-var jsx_dev_runtime3 = __toESM(require_jsx_dev_runtime(), 1);
-var App = () => /* @__PURE__ */ jsx_dev_runtime3.jsxDEV(RouterProvider, {
+var jsx_dev_runtime2 = __toESM(require_jsx_dev_runtime(), 1);
+var App = () => /* @__PURE__ */ jsx_dev_runtime2.jsxDEV(RouterProvider, {
   router: RouterMetaGuard(browserRouter)
 }, undefined, false, undefined, this);
 
@@ -46764,9 +46744,9 @@ input:where([type='button'], [type='reset'], [type='submit']),
 })();
 
 // public/render.tsx
-var jsx_dev_runtime4 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime3 = __toESM(require_jsx_dev_runtime(), 1);
 document.addEventListener("DOMContentLoaded", () => {
   const rootElement = document.getElementById("root");
   const root = import_client2.default.createRoot(rootElement);
-  root.render(/* @__PURE__ */ jsx_dev_runtime4.jsxDEV(App, {}, undefined, false, undefined, this));
+  root.render(/* @__PURE__ */ jsx_dev_runtime3.jsxDEV(App, {}, undefined, false, undefined, this));
 });
