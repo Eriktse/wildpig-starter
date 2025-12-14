@@ -9,6 +9,6 @@
   },
   "dependencies": {
     "antd": "^6.1.0",
-    "wildpig": "1.1.3"
+    "wildpig": "1.1.6"
   }
 }
