@@ -71,13 +71,13 @@ src 目录是主要的代码文件，大量的开发工作将在这里进行。
 
 ### page目录
 
-page目录下存放所有客户端的代码，主要是各种react组件，注意这些组件在生产模式下会被服务端渲染，请确保所有客户端操作（例如对document, window, localstorage等的操作）都存在在useEffect钩子，或其他的客户端事件处理函数中。
+page目录下存放所有客户端的代码，主要是各种react组件，注意这些组件在生产模式下会被服务端渲染，请确保所有客户端操作（例如对document, window, localstorage等的操作）都存在useEffect钩子，或其他的客户端事件处理函数中。
 
 ### api目录
 
 api目录下的所有命名为"index.ts"的文件，会被自动识别为api路由。
 
-例如，api目录下有一个名为"hello.ts"的文件，那么它的路由路径就是"/api/hello"。
+例如，api/hello目录下有一个名为"index.ts"的文件，那么它的路由路径就是"/api/hello"。
 
 api目录支持动态路由（带参数的路由），参数通过"[id]"的形式传递，但注意不要将参数路由与固定路由混用，可能导致路由冲突，路由参数在服务端通过`request.params`来获取。
 
