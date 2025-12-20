@@ -1,14 +1,10 @@
 {
   "scripts": {
-    "dev": "export NODE_ENV=development && bun --hot run index.ts",
-    "build": "export NODE_ENV=production && bun run prebuild.ts && bun build --compile index.ts --outfile dist/wildpig",
-    "build-linux": "export NODE_ENV=production && bun run prebuild.ts && bun build --compile index.ts --target=bun-linux-x64-musl --outfile dist/wildpig",
-    "start": "cd dist && ./wildpig",
-    "docker:build": "bun run build-linux && docker build -t wildpig .",
-    "docker:run": "docker run -it -p 3000:3000 wildpig"
+    "dev": "wildpig dev",
+    "build": "wildpig build",
+    "start": "wildpig start"
   },
   "dependencies": {
-    "antd": "^6.1.0",
-    "wildpig": "1.1.6"
+    "wildpig": "1.3.14"
   }
 }
