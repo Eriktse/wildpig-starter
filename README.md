@@ -2,6 +2,16 @@
 
 > Wildpig暂不适合在生产环境中使用（还需经过时间的检验），仅用于开发和测试。
 
+## 0. 克隆项目
+
+先安装git，用命令将项目克隆到本地。
+
+```bash
+git clone https://github.com/Eriktse/wildpig-starter.git
+```
+
+如果网络环境不佳，可以考虑使用github加速镜像。
+
 ## 1. 安装bun
 
 Wildpig 基于 Bun 运行，因此您需要先安装 Bun。请根据您的操作系统按照 [Bun 官方文档](https://bun.sh/docs/installation) 进行安装。
