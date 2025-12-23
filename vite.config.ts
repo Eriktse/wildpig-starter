@@ -14,11 +14,12 @@ export default defineConfig({
         },
     },
     server: {
-        port: 3000,
+        host: true,
+        port: 3002,
+        strictPort: true,
         hmr: {
-            port: 3001,
-            clientPort: 3001,
+            port: 3003,
+            clientPort: 3003,
         },
-        cors: true,
-    },
+    }
 });

@@ -2,9 +2,9 @@
   "version": "v1",
   "packages": {
     "wildpig": {
-      "signature": "9e1778815888b79b1b50846172f1bff8",
+      "signature": "ff82365557cb202c633c8a7322529942",
       "file": true,
-      "replaced": "1.3.20"
+      "replaced": "1.4.1"
     }
   }
 }

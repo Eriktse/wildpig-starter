@@ -1,12 +1,13 @@
 {
+  "type": "module",
   "scripts": {
-    "dev": "yalc add wildpig && wildpig dev",
-    "build": "yalc add wildpig && wildpig build",
-    "start": "yalc add wildpig && wildpig start"
+    "dev": "wildpig dev",
+    "build": "wildpig build",
+    "start": "wildpig start"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
     "tailwindcss": "^4.1.18",
-    "wildpig": "file:.yalc/wildpig"
+    "wildpig": "1.4.1"
   }
 }
