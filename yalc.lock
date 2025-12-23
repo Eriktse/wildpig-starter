@@ -1,0 +1,10 @@
+{
+  "version": "v1",
+  "packages": {
+    "wildpig": {
+      "signature": "9e1778815888b79b1b50846172f1bff8",
+      "file": true,
+      "replaced": "1.3.20"
+    }
+  }
+}
